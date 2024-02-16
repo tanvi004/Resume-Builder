@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
+    <title>Resume Builder</title>
+</head>
+<body>
+    <!--here is html code-->
+
+    <div class="container" id="cv-form">
+        <h1 class="text-center my-2">Resume Generator</h1>
+        <p class="text-center">By Tanvi Paygude</p>
+
+        <div class="row">
+            <div class="col-md-6">
+             <!--First column-->
+             <h3>Personal Information</h3>
+             <div class="form-group">
+                <label for="nameField">Your Name</label>
+                <input 
+                 type="text" 
+                 id="nameField" 
+                 placeholder="Enter Here" 
+                 class="form-control"
+                 />   
+             </div>
+
+             <div class="form-group mt-3">
+                <label for="contactField">Your Contact Number</label>
+                <input 
+                 type="text" 
+                 id="contactField" 
+                 placeholder="Enter Here" 
+                 class="form-control"
+                 />   
+             </div>
+
+             <div class="form-group mt-3">
+                <label for="emField">Your EmailID</label>
+                <input 
+                 type="text" 
+                 id="emField" 
+                 placeholder="Enter Here" 
+                 class="form-control"
+                 />   
+             </div>
+
+             <div class="form-group mt-3">
+                <label for="addressField">Your Address</label>
+                <textarea
+                 type="text" 
+                 id="addressField" 
+                 placeholder="Enter Here" 
+                 class="form-control"
+                 rows="4"
+                 ></textarea>   
+             </div>
+
+             <div class="form-group mt-3">
+              <label for="">Select your Photo</label>
+                <input id="imgField" type="file" class="form-control"/>
+             </div>
+
+
+
+             <p class="text-secondary my-3">Important Links</p>
+
+             <div class="form-group mt-3">
+                <label for="fbField">Facebook</label>
+                <input 
+                 type="text" 
+                 id="fbField" 
+                 placeholder="Enter Here" 
+                 class="form-control"
+                 />   
+             </div>
+
+             <div class="form-group mt-3">
+                <label for="instaField">Instagram</label>
+                <input 
+                 type="text" 
+                 id="instaField" 
+                 placeholder="Enter Here" 
+                 class="form-control"
+                 />   
+             </div>
+
+             <div class="form-group mt-3">
+                <label for="linkedField">LinkedIN</label>
+                <input 
+                 type="text" 
+                 id="linkedField" 
+                 placeholder="Enter Here" 
+                 class="form-control"
+                 />   
+             </div>
+
+
+            </div>
+            <div class="col-md-6">
+
+                <h3>Professional Information</h3>
+
+                 <div class="form-group mt-3">
+                    <label for="">Objective</label>
+                    <textarea id="objectiveField" rows="4" placeholder="Enter Here" class="form-control" ></textarea>   
+                 </div>
+
+                 <div class="form-group mt-3" id="we">
+                    <label for="">Work Experience</label>
+                    <textarea rows="4" placeholder="Enter Here" class="form-control weField"></textarea> 
+                    
+                    <!--new textarea-->
+
+                    <div class="container text-center mt-2" id="weAddButton">
+                        <button onclick="addNewWEField()" class="btn btn-primary btn-sm">Add</button>
+                    </div>
+                 </div>
+
+
+                 <div class="form-group mt-3" id="aq">
+                    <label for="">Academic Qualifications</label>
+                    <textarea id="aqField" rows="4" placeholder="Enter Here" class="form-control eqField"></textarea>   
+                    <div class="container text-center mt-3" id="aqAddButton">
+                        <button  onclick="addNewAQField()" class="btn btn-primary btn-sm">Add</button>
+                    </div>
+                 </div>
+
+                 <div class="form-group mt-3" id="ks">
+                    <label for="">Key Skills</label>
+                    <textarea id="ksField" rows="4" placeholder="Enter Here" class="form-control ksField"></textarea>   
+                    <div class="container text-center mt-3" id="ksAddButton">
+                        <button onclick="addNewKSField()" class="btn btn-primary btn-sm">Add</button>
+                    </div>
+                 </div>
+            </div>      
+        </div>
+
+        <div class="container text-center mt-3">
+            <button onclick="generateCV()" class="btn btn-primary btn-lg">Generate CV</button>
+        </div>
+    </div>
+
+    <!--cv template-->
+    <div class="container" id="cv-template">
+
+        <div class="row">
+            <div class="col-md-4 text-center py-5 background">
+               <!--First column-->
+               <img
+                src="https://www.clipartkey.com/mpngs/m/146-1461473_default-profile-picture-transparent.png" 
+                alt=""
+                class="img-fluid myimg"
+                id="imgTemplate"
+                />
+
+                <div class="container">
+                    <p id="nameT1">Tanvi Paygude</p>
+                    <p id="contactT">9230303220</p>
+                    <p id="addressT">563363/4524152 Secor 35 Noida, India</p>
+                    <p id="emailT">tanvip@gmail.com</p>
+
+                    <hr />
+
+                    <p><a id="fbT" href="#1">https://www.facebook.com</a></p>
+
+                    <p><a id="instaT" href="#1">https://www.instagram.com</a></p>
+
+                    <p><a id="linkedT" href="#1">https://www.linkedin.com</a></p>
+                </div>
+            </div>
+
+            <div class="col-md-8 pyt">
+                <!--Second column-->
+                <h1 id="nameT2" class="text-center" style="font-weight: 980;">Tanvi Paygude</h1>
+
+                <!--objective card-->
+                <div class="card mt-4">
+                    <div class="card-header background">
+                        <h3>Objective</h3>
+                    </div>
+                    <div class="card-body">
+                        <p id="objectiveT">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Veniam quis, ipsam itaque pariatur unde laboriosam reprehenderit? Dolorem, perferendis voluptate similique temporibus vitae aspernatur nulla laboriosam minima, sint excepturi eum, debitis vero! Ducimus magnam quos consectetur harum quam atque ipsa. Architecto amet mollitia asperiores in explicabo corrupti sunt quisquam ea quasi.</p>
+                    </div>
+                </div>
+                
+
+                  <!--work experience card-->
+                  <div class="card mt-4">
+                    <div class="card-header background">
+                        <h3>Work Experience</h3>
+                    </div>
+                    <div class="card-body">
+                        <ul id="weT">
+                            <li>Lorem ipsum dolor sit amet consectetur adipisicing elit. Placeat, rem.</li>
+
+                            <li>Lorem ipsum dolor sit amet consectetur adipisicing elit. Placeat, rem.</li>
+
+                            <li>Lorem ipsum dolor sit amet consectetur adipisicing elit. Placeat, rem.</li>
+
+                            <li>Lorem ipsum dolor sit amet consectetur adipisicing elit. Placeat, rem.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!--Academic Qualification card-->
+                <div class="card mt-4">
+                    <div class="card-header background">
+                        <h3>Academic Qualification</h3>
+                    </div>
+                    <div class="card-body">
+                        <ul id="aqT">
+                            <li>Lorem ipsum dolor sit amet consectetur adipisicing elit. Placeat, rem.</li>
+
+                            <li>Lorem ipsum dolor sit amet consectetur adipisicing elit. Placeat, rem.</li>
+
+                            <li>Lorem ipsum dolor sit amet consectetur adipisicing elit. Placeat, rem.</li>
+
+                            <li>Lorem ipsum dolor sit amet consectetur adipisicing elit. Placeat, rem.</li>
+                        </ul>                    </div>
+                </div>
+ 
+                <!--Key Skills card-->
+                <div class="card mt-4">
+                    <div class="card-header background">
+                        <h3>Key Skills</h3>
+                    </div>
+                    <div class="card-body">
+                        <ul id="ksT">
+                            <li>Lorem ipsum dolor sit amet consectetur adipisicing elit. Placeat, rem.</li>
+
+                            <li>Lorem ipsum dolor sit amet consectetur adipisicing elit. Placeat, rem.</li>
+
+                            <li>Lorem ipsum dolor sit amet consectetur adipisicing elit. Placeat, rem.</li>
+
+                        </ul>                   
+                     </div>
+                </div>
+
+                <div class="container mt-3  text-center">
+                    <button onclick="printCV()" class="btn background">
+                        Print CV
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+    <script src="script.js"></script>
+</body>
+</html>
+
+
